@@ -56,68 +56,59 @@ for i in range(len(A)):
         count = count+1
 print("number of couple is ", count)
 
-#implementation of the stack block using  linked list 
+# implementation of the stack block using  linked list
+
 
 class stack_linked_list:
     """For this object we want to use linked list inseat the simple list.
+
     to implement the block stack.
     """
-    #the class node used in construction of the stack block 
 
+    # the class node used in construction of the stack block
     class _node:
-        """A node represent a sequence of a stack have two  proprites : 
+        """A node represent a sequence of a stack have two  proprites.
+
         element : is the element of the node.
         and next : is the next element of the current elemenet.
-        """ 
-        
-        def __init__(self,element,next):
-            """Initilisation of node object's parametre."""
+        """
 
-            __slots__ = '_element','_next'
+        def __init__(self, element, next):
+            """Initilisation of node object's parametre."""
+            __slots__ = '_element', '_next'
             self._element = element
             self._next = next
 
     def __init__(self):
         """Initilisation of parametres s'object."""
-        
         self._head = None
         self._size = 0
 
     def __len__(self):
         """Return the size of the stack block."""
-
         return self._size
 
     def is_empty(self):
         """Test the stack block if is it empty."""
-
         return self._size == 0
-    
-    def push(self,e):
-        """Adding the element e to the top of the stack block."""
 
+    def push(self, e):
+        """Adding the element e to the top of the stack block."""
         self._head = self._node(e, self._head)
-        self._size +=1
-    
+        self._size += 1
+
     def top(self):
         """Return the first element  of the stack without remove it."""
-        
         if self.is_empty():
             raise Empty('the stack block is empty')
         answer = self._head._element
         return answer
-    
+
     def pop(self):
         """Return the first element and remove it from the srack block."""
-
         if self.is_empty():
             raise Empty('the stack block is empty')
         answer = self._head._element
         self._head = self._head._next
-        self._size -=1
-        return answer 
-    
-
-
-    
- 
+        self._size -= 1
+        return answer
